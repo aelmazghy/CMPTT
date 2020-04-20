@@ -1,0 +1,84 @@
+body {
+    background: #6b63ff;
+    margin: 0;
+    padding-bottom: 60px;
+    overflow-x: hidden;
+}
+header {
+    background: #fff;
+}
+.left.cmptt-menu {
+    width: 70px;
+    z-index: 5;
+    position: absolute;
+    padding-bottom: 10px;
+}
+
+.cmptt-menu {
+    top: 0;
+    width: 250px;
+    z-index: 10;
+    background: #6C63FF;
+    bottom: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-bottom: 70px;
+    position: fixed;
+}
+.sidebar-menu {
+    padding-bottom: 30px;
+    width: 100%;
+}
+.sidebar-menu, .sidebar-menu ul, .sidebar-menu li, .sidebar-menu a {
+    border: 0;
+    font-weight: normal;
+    line-height: 1;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    text-decoration: none;
+}
+.sidebar-menu > ul > li > a {
+    padding: 15px 20px;
+}
+.sidebar-menu > ul > li > a {
+    color: #BCBCBC;
+    display: block;
+    padding: 14px 0;
+    margin: 12px;
+    text-align: center;
+    background: #605ACB;
+    border-radius: 5px;
+}
+.sidebar-menu > ul > li > a:hover{background: #5851e8;}
+.sidebar-menu ul li a i {
+    display: inline-block;
+    line-height: 17px;
+    text-align: center;
+    vertical-align: middle;
+    width: 20px;
+    font-size: 20px;
+}
+.sidebar-menu ul a img {width: 70px;}
+.Header {margin-left: 90px;}
+.Header::before{
+	content: "";
+    background: url(../img/backgroundHeaderSvg.svg) no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    width: 50%;
+
+}
+.Header h1{font-size: 263px;}
+.Header p{font-size: 40px;color:#898989;}
+
+
+
+
+
+
