@@ -17,6 +17,7 @@ body {
 }
 header {
     background: #fff;
+    position: relative;
 }
 .cmptt-menu {
     width: 70px;
@@ -24,10 +25,11 @@ header {
     padding-bottom: 10px;
     top: 0;
     background: #6C63FF;
-    bottom: 0;
+    height: 100%;
     margin-bottom: 0;
     margin-top: 0;
-    position: fixed;
+    position: absolute;
+    bottom: 0;
 }
 .sidebar-menu {
     padding-bottom: 30px;
@@ -115,8 +117,6 @@ header {
     /* --white-2: hsl(0, 0%, 80%); */
     --dark: hsl(var(--hue), 25%, 10%);
     --grey: hsl(0, 0%, 50%);
-
-    width: 310px;
     height: 500px;
     margin: 40px 0;
 
@@ -431,6 +431,10 @@ figcaption {
 .flip-card-container button:focus+.design-container {
     --tr: 20;
     --op: .7;
+}
+.mycard {
+    /* display: block; */
+    float: left;
 }
 /*------------------------------------------------END CARD STYLE*/
 
