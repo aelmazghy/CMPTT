@@ -30,7 +30,7 @@ header {
     letter-spacing: 2px;
     margin-bottom: 30px;
 }
-.Header h1 span{color: #ffc107;}
+.Header h1 span{color: #ECA400;}
 .Header p{    font-size: 25px;
     color: #898989;line-height: 2.3;
     margin-left: 18px;}
@@ -41,48 +41,49 @@ header {
     font-size: 25px;
     line-height: 60px;
     text-align: center;
-    border: 1px solid #ffc106;
-    color: #ffc106 !important;
+    border: 1px solid #ECA400;
+    color: #ECA400 !important;
     text-decoration: none;
     z-index: 9999;
     position: fixed;
     bottom: 15px;
-    left: 0;
+    left: 5px;
 }
 .Header a.scrolldown:hover {color:#000;}
 .cmpttmain{
     margin-top: 100px;
 }
-.cmpttmain h2{
+.cmpttmain h2, .myfooter h3{
     text-transform: uppercase;
-    color: #ffc107;
+    color: #ECA400;
     letter-spacing: 1.5px;
     font-size: 50px;
     font-weight: bold;
 }
-.cmpttmain p{
+.cmpttmain p, .myfooter p{
     font-size: 18px;
     color: rgba(255,255,255,0.5);
 }
 
 .sub-title-cmptt p span {
-    border-bottom: 6px solid #FFC109;
-    color: #ffc106;
+    border-bottom: 6px solid #ECA400;
+    color: #ECA400;
     font-weight: bold;
     padding: 5px;
 }
 /*------------------------------------------------START CARD STYLE*/
-
 /* .flip-card-container */
 .avatarPic {
     z-index: 3;
-    border-radius: 50%;
-    height: 180px;
-    width: 180px;
+    height: 100%;
+    width: 100%;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
 
 }
 .flip-card-container {
-    --hue: 150;
+    overflow: hidden;
+    --hue: 41;
     --primary: hsl(var(--hue), 50%, 50%);
     --white-1: hsl(0, 0%, 90%);
     /* --white-2: hsl(0, 0%, 80%); */
@@ -90,8 +91,21 @@ header {
     --grey: hsl(0, 0%, 50%);
     height: 500px;
     margin: 40px 0;
-
     perspective: 1000px;
+    background: #EAF8BF;
+    border-radius: 5px;
+    box-shadow: 0.1rem 0.25rem 1.25rem 0.0625rem rgba(0, 0, 0, 0.25);
+    -webkit-transition: all .3s ease-in-out 0s;
+    -o-transition: all .3s ease-in-out 0s;
+    transition: all .3s ease-in-out 0s;
+    position: relative;
+    top: 0;
+}
+
+.flip-card-container:hover{
+    top: -10px;
+    -webkit-box-shadow: 0 0 25px 0 rgb(0, 0, 0);
+    box-shadow: 0 0 25px 0 rgb(0, 0, 0);
 }
 
 /* .flip-card */
@@ -115,9 +129,8 @@ header {
 .card-back {
     width: 100%;
     height: 100%;
-    border-radius: 24px;
 
-   /* background: var(--dark); */
+    /* background: var(--dark); */
     position: absolute;
     top: 0;
     left: 0;
@@ -161,7 +174,7 @@ figure,
 /* img */
 img {
     height: 100%;
-    border-radius: 24px;
+    /*  border-radius: 24px; */
 }
 
 /* figcaption */
@@ -169,8 +182,8 @@ figcaption {
     display: block;
 
     width: 100%;
-    margin-top: 1%;
-    padding: 8px 2px;
+    /*  margin-top: 1%;*/
+    /*    padding: 8px 2px;*/
 
     font-weight: bold;
     line-height: 1.6;
@@ -187,9 +200,9 @@ figcaption {
 }
 
 /* .img-bg */
-.img-bg {
+/*.img-bg {
     background: hsla(var(--hue), 25%, 10%, .5);
-}
+}*/
 
 .card-front .img-bg {
     clip-path: polygon(0 40%, 100% 40%, 100% 100%, 0 100%);
@@ -197,9 +210,8 @@ figcaption {
 
 .card-front .img-bg::before {
     content: "";
-
     position: absolute;
-    top: 41%;
+    top: 51.5%;
     left: 50%;
     transform: translate(-50%, -50%);
 
@@ -225,7 +237,7 @@ figcaption {
 
 /* ul */
 .flip-card-container ul {
-    padding-top: 50%;
+    padding-top: 90%;
     margin: 0 auto;
     width: 70%;
     height: 100%;
@@ -244,15 +256,14 @@ figcaption {
     width: 100%;
     margin-top: 12px;
     padding-bottom: 12px;
-
     font-size: 14px;
     text-align: center;
-
     position: relative;
+    color: #000;
 }
 
 .flip-card-container ul li:nth-child(2n) {
-    color: var(--white-2);
+    color:#27476E;
 }
 
 .flip-card-container ul li:not(:last-child)::after {
@@ -267,6 +278,11 @@ figcaption {
 
     background: currentColor;
     opacity: .2;
+}
+/* Liens rÃ©seaux sociaux */
+.lien{
+    position: absolute;
+    padding-top: 220px;
 }
 
 /* button */
@@ -408,3 +424,18 @@ figcaption {
     float: left;
 }
 /*------------------------------------------------END CARD STYLE*/
+
+
+/*------------------------------------------------start footer*/
+.myfooter {padding: 30px;}
+.myfooter p span{
+    background: #ECA400;
+    color: #000;
+    padding: 5px;
+    letter-spacing: 7px;
+    font-size: 18px;
+    font-weight: bold;
+}
+/*------------------------------------------------END footer*/
+
+.social-m a{color: black;font-size: 13px;}
