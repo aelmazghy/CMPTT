@@ -47,6 +47,16 @@ body {
     font-size: 130px;
     font-weight: bold;
 }
+.content-top p {
+    font-size: 25px;
+    line-height: 2.3;
+}
+.content-top p span {
+    border-bottom: 6px solid #FFC109;
+    color: #ffc106;
+    font-weight: bold;
+    padding: 5px;
+}
 .all-card{
     background: #fdfdfd;
     overflow: hidden;
@@ -79,6 +89,17 @@ body {
     -webkit-transform: scale(1.1);
     -moz-transform: scale(1.1);
     -o-transform: scale(1.1);
+}
+.apprenant-name a{
+    color: #797979;
+    display: block;
+    margin-bottom: 4px;
+    font-size: 14px;
+    line-height: 23px;
+    margin-top: 4px;
+    font-weight: 700;
+    transition: 0.3s;
+    text-transform: capitalize;
 }
 .apprenant-more ul {
     padding: 0;
