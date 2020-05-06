@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/css.css"/>
+    <link rel="stylesheet" href="css/responsive.css"/>
     <title>CMPTT</title>
 </head>
 <body class="index">
@@ -28,16 +29,19 @@
 <main>
     <div class="container">
         <div class="row">
+            <div class="info-cmptt">
+                <i class="fas fa-info-circle"></i>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+            </div>
             <div class="all-card" id="app">
-                <div class="mycard col-md-4" v-for="apprenant in apprenants">
-                    <div class="apprenant-avatar">
-                        <a href="#">
+                <div class="mycard col-md-4" v-for="apprenant in apprenants" @click="showMyModal = true">
+                    <div class="apprenant-avatar" @click="setCurrentApprenant(apprenant)">
                             <img :src="apprenant.avatar">
-                        </a>
                     </div>
                     <div class="apprenant-caption">
                         <h3 class="apprenant-name">
-                            <a href="#">{{ apprenant.nom }}</a>
+                            <a href="">{{ apprenant.nom }}</a>
                         </h3>
                         <div class="apprenant-more">
                             <ul>
@@ -47,31 +51,68 @@
                         </div>
                     </div>
                 </div>
-            </div>
+<!----------------modals----------------->
+                <transition name="fade">
+                    <div class="modal-overlay" v-if="showMyModal" @click="showMyModal = false"></div>
+                </transition>
+                <transition name="slide" v-for="apprenant in apprenants" :key="apprenant.id">
+                    <div class="modal" v-if="showMyModal">
+                        <div class="card box-apprenant">
+                            <div class="box">
+                                <h2>{{ currentApprenant.nom }}<br><span class="badge badge-primary">{{ currentApprenant.ville }}</span></h2>
+                                <p>{{ currentApprenant.devise }}</p>
+                                <span>
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-github-alt" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </span>
+                            </div>
+                        </div>
+                        <button class="button btn btn-danger" @click="showMyModal = false">
+                            FERMER
+                        </button>
+                    </div>
+                </transition>
+<!----------------modals----------------->
+
+            </div><!--end app-->
         </div>
     </div>
 </main>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 </html>
 
 <script>
+
     new Vue({
         el: '#app',
         data: {
             apprenants:[
-                {id:"1",nom:"Alan Baudon",avatar:"img/alan_avatar.jpg",alt_avatar:"alan_avatar",avatar_r:"img/alan_avatar_r.png",alt_avatar_r:"alan_avatar_r",ville:"Épinal, Nancy (88-54)",devise:"Qu'il pleuve, qu'il vente ou qu'il neige"},
-                {id:"2",nom:"Yassine Sali",avatar:"img/yassine_avatar.jpg",alt_avatar:"yassine_avatar",avatar_r:"img/yassine_avatar_r.png",alt_avatar_r:"yassine_avatar_r",ville:"Épinal (88)",devise:"In a perfect world, 666 would be red"},
-                {id:"3",nom:"Julien Szubarga",avatar:"img/Julien_Sz_ld_avatar.jpg",alt_avatar:"julien_avatar",avatar_r:"img/julien_avatar_r.png",alt_avatar_r:"julien_avatar_r",ville:"Saint-Dié (88)",devise:"Do androïds dream of electric sheeps?"},
-                {id:"4",nom:"Bilgin Ygit",avatar:"img/bilgin_avatar.jpg",alt_avatar:"bilgin_avatar",avatar_r:"img/bilgin_avatar_r.png",alt_avatar_r:"bilgin_avatar_r",ville:"Épinal (88)",devise:"Au travail les amis! Prends un donnut"},
-                {id:"5",nom:"Abdessamad El Mazghy",avatar:"img/abdess_avatar.jpg",alt_avatar:"abdess_avatar",avatar_r:"img/abdess_avatar_r.png",alt_avatar_r:"abdess_avatar_r",ville:"Remiremont (88)",devise:"Hello world - Ceci est un texte inutile"},
-                {id:"6",nom:"Alexandre Noiriel",avatar:"img/alex_avatar.jpg",alt_avatar:"alex_avatar",avatar_r:"img/alex_avatar_r.png",alt_avatar_r:"alex_avatar_r",ville:"Épinal (88)",devise:"La vie ça n'est que des 0 et des 1"},
-                {id:"7",nom:"Marvin Vasseur",avatar:"img/marvin_avatar.jpg",alt_avatar:"marvin_avatar",avatar_r:"img/marvin_avatar_r.png",alt_avatar_r:"marvin_avatar_r",ville:"Épinal (88)",devise:"The only easy day was yesterday"}
+                {id:"1",nom:"Alan Baudon",avatar:"img/alan_avatar.jpg",alt_avatar:"alan_avatar",ville:"Épinal, Nancy (88-54)",devise:"Qu'il pleuve, qu'il vente ou qu'il neige"},
+                {id:"2",nom:"Yassine Sali",avatar:"img/yassine_avatar.jpg",alt_avatar:"yassine_avatar",ville:"Épinal (88)",devise:"In a perfect world, 666 would be red"},
+                {id:"3",nom:"Julien Szubarga",avatar:"img/Julien_Sz_ld_avatar.jpg",alt_avatar:"julien_avatar",ville:"Saint-Dié (88)",devise:"Do androïds dream of electric sheeps?"},
+                {id:"4",nom:"Bilgin Ygit",avatar:"img/bilgin_avatar.jpg",alt_avatar:"bilgin_avatar",ville:"Épinal (88)",devise:"Au travail les amis! Prends un donnut"},
+                {id:"5",nom:"Abdessamad El Mazghy",avatar:"img/abdess_avatar.jpg",alt_avatar:"abdess_avatar",ville:"Remiremont (88)",devise:"Hello world !"},
+                {id:"6",nom:"Alexandre Noiriel",avatar:"img/alex_avatar.jpg",alt_avatar:"alex_avatar",ville:"Épinal (88)",devise:"La vie ça n'est que des 0 et des 1"},
+                {id:"7",nom:"Marvin Vasseur",avatar:"img/marvin_avatar.jpg",alt_avatar:"marvin_avatar",ville:"Épinal (88)",devise:"The only easy day was yesterday"}
             ],
-            flipID:0
+            currentApprenant: {},
+            flipID:0,
+            showMyModal: false
         },
+
         methods: {
             activate:function(id){
                 this.flipID = id;
+            },
+            setCurrentApprenant: function(apprenant) {
+                this.currentApprenant = apprenant
             }
         }
     })
